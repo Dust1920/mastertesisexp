@@ -1,0 +1,11 @@
+# Introducción
+
+En este libro veremos la continuación del modelo visto en la Tesis de Licenciatura. 
+
+\begin{align*}
+\mathrm{d}z & =\omega\mathrm{d}t\\
+\mathrm{d}\omega & =\left(b\left(z\right)-\dfrac{\omega}{\tau_{w}}\right)\mathrm{d}t+b_{w}\mathrm{d}W
+\end{align*}
+
+Donde vimos que, por ejemplo $q_t = q_v + q_r$. En este modelo consideraremos quitaremos tal restricción, y agregaremos la dependiencia temporal, es decir $q_v(z)\to q_v(z, t)$. Esto convierte el sistema de ecuaciones diferenciales ordinarias en un sistema de ecuaciones diferenciales parciales. 
+

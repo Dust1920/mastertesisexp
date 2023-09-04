@@ -1,0 +1,24 @@
+project:
+  type: book
+
+book:
+  title: "Tesis de Maestría"
+  author: "David Peña Peralta"
+  date: "30/8/2023"
+  chapters:
+    - index.qmd
+    - theory.qmd
+    - model1.qmd
+    - model2.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+

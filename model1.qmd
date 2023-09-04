@@ -1,0 +1,131 @@
+# Modelo 1: Etapa 1
+Al estar recorriendo el modelo por etapas, supondremos la velocidad constante.
+$$
+\omega\left(z,t\right)=1,\forall\left(z,t\right)\in\mathbb{R}^{2}
+$$
+
+Entonces, el sistema queda como sigue
+\begin{align*}
+\omega\left(z,t\right) & =1\\
+\partial_{t}\left(\theta\right)+\partial_{z}\left(\omega\theta\right) & =0\\
+\partial_{t}\left(q_{v}\right)+\partial_{z}\left(\omega q_{v}\right) & =0\\
+\partial_{t}\left(q_{r}\right)+\partial_{z}\left(\omega q_{r}\right) & =0\\
+\partial_{t}\left(q_{N}\right)+\partial_{z}\left(\omega q_{N}\right) & =0
+\end{align*}
+
+Entonces, pretendemos resolver un sistema desacoplado donde cada variable
+representa un problema de transporte.
+
+Para ello. partimos importando las librerías básicas y los parámetros definidos para el modelo. 
+
+```{python}
+import numpy as np  
+import parameters as p
+```
+
+Entonces, proseguimos con la "entrada" del modelo. 
+
+```{python}
+z_0 = 0  # Km, nunca olvide las unidades...
+z_0 = z_0 / p.length_scale
+
+z_f = 15
+z_f = z_f / p.length_scale
+
+print(z_0, z_f)
+```
+
+Una vez definida $Z = [z_0,z_f]$, seguimos con $n_z$, en nuestro caso, comenzaremos con $n_z = 150$.
+
+```{python}
+n_z = 150
+
+height = np.linspace(z_0,z_f,n_z)
+delta_z = height[1] - height[0]
+
+print(n_z, delta_z)
+```
+
+En nuestro caso, al usar la función "linspace", dados por sentado que $\Delta z$ es constante, es decir, $\Delta z_k=c,c\in\mathbb{R}$. 
+
+Ahora, seguimos con el area de trabajo.
+
+```{python}
+variables = ['omega','theta','qv','qr','qn']
+
+workspace = np.zeros((n_z,len(variables)))
+```
+
+En nuestro caso, nuestra areá de trabajo es una matriz de $n_z\times n_v$ donde $n_v$ es el número de variables. Seguido con las condiciones iniciales, para ello, de nuevo llamamos a las librerías adecuadas. 
+
+```{python}
+import matplotlib.pyplot as plt
+import init_functions as init
+```
+
+Para el primer modelo. Usaremos funciones escalonadas o de Heaviside. 
+
+$$
+U(x) = 
+\begin{cases}
+0& x<0\\
+1& x\geq 0 
+\end{cases}
+$$
+
+
+```{python}
+y = np.array([init.heaviside(i) for i in height])
+plt.plot(y * p.velocity_scale, p.length_scale * height)
+plt.ylim([0.0,15.0])
+plt.xlabel('velocity')
+plt.ylabel('height')
+```
+
+En este caso era claro que saldría constante, por esto vamos a trasladar la función una distancia de $a$, además sirve para comentar que al estar tratando con alturas, es más conveniente gráficar con el formato anterior. $(f(z),z)$. 
+
+
+```{python}
+# Vamos a desplazar la grafica 3 unidades. 
+a_omega = 3
+a_omega = a_omega / p.velocity_scale
+a_theta = 3
+a_theta = a_theta / p.temperature_scale
+a_qv = 3
+a_qv = a_qv / p.ratio_scale
+a_qr = 3
+a_qr = a_qr / p.ratio_scale
+a_qn = 3
+a_qn = a_qn / p.ratio_scale
+
+print(a_omega, a_theta, a_qv, a_qr, a_qn)
+```
+
+Recordando que
+$$
+U_a(x) = 
+\begin{cases}
+0& x<a\\
+1& x\geq a 
+\end{cases} = U(x-a),\forall a\in \mathbb{R}
+$$
+
+podemos graficar $\omega$. 
+
+```{python}
+y_omega = np.array([init.heaviside(i - a_omega) for i in height])
+plt.plot(y_omega * p.velocity_scale, p.length_scale * height)
+plt.ylim([0.0,15.0])
+plt.xlabel('velocity')
+plt.ylabel('height')
+```
+
+Entonces, ahora podemos graficar todas en conjunto. Para eso usaremos otra librería. 
+
+```{python}
+import model_plots as fpt
+
+fpt.system_plots(workspace, height)
+
+
+```
