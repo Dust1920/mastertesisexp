@@ -1,5 +1,61 @@
-# Introduction
+# Teoría Fisica
 
-This is a book created from markdown and executable code.
 
-See @knuth84 for additional discussion of literate programming.
+# Teoria Númerica
+## Adimensionalizacion
+Al momento de trabajar con modelos físicos, en este caso atmosféricos, es importante tener cuidado al trabajar las unidades para evitar errores. Uno de los métodos más usados es la eliminación de las unidades.
+
+## Discretizacion
+### Malla (Regiones Rectangulares)
+
+En el modelo trabajamos dentro de la tropopausa, por lo tanto $Z = [0,15]$ y consideremos $T=[0, t],t\in\mathbb{R}$. Por lo tanto, nuestra zona de trabajo es $U = Z\times T$, donde cada $u\in U$ es de la forma $u=(z,t)$. Ahora, definiremos $n_z,n_t\in\mathbb{N}$, tales que $n_z,n_t>0$. $n_z$ nos dira el número de pedazos en los que será dividido $Z$ y de igual forma con $n_t$ para $T$.
+
+Si $n_z = 2$, entonces existe $z^*$ tal que $Z = [0,z^*] \cup [z^*,15]$, llamando $z_0 = 0$ y $z_f = 15$. Decimos que la colección $P_Z = \{z_0,z^*,z_f\}$ forman una partición de $Z$. Todo esto aplica de igual forma para $T$. Entonces, llamaremos malla (o 'grid' traducido al ingles) al conjunto $G$, donde 
+$$
+G = P_Z \times P_T,
+$$
+
+donde $P_Z$ y $P_T$ son particiones de $Z$ y $T$ respectivamente. 
+
+Dentro de una partición $P=\{x_0,\ldots,x_n\}$ llamaremos $\Delta x_k = x_{k+1}-x_k, n-1\geq k\geq 0$. Entonces para $P_Z$ y $P_T$ existe $\Delta z_k,\Delta t_k$ respectivamente. Entonces, es claro que 
+\begin{align*}
+t_{k} & =t_{0}+\sum_{i=0}^{k-1}\Delta t_{k}\\
+z_{k} & =z_{0}+\sum_{i=0}^{k-1}\Delta z_{k}
+\end{align*}
+
+Entonces, entonces para cada $u\in G$ existen indices $i,j$ tales que 
+
+$$
+u\in G\Rightarrow u(z,t) = u(z_i,t_j) = u^i_j
+$$ 
+
+
+### Método Upwind
+Una vez definida la malla, y conociendo el sistema a resolver, debemos revisar como vamos a resolver el sistema. Para ello usaremos una versión del método upwind la cual consta de 2 elementos. 
+
+* Diferencias Finitas
+* Criterio CFL
+
+#### Diferencias Finitas
+Recordando la definición de derivada.
+$$
+f'_+(x) = \lim_{h\to 0} \dfrac{f(x + h)-f(x)}{h}
+$$
+
+Es claro que, 
+$$
+f'(x) \approx \dfrac{f(x + h)-f(x)}{h}.
+$$
+
+También, según la situación pueden usarse variaciones para aproximarla. 
+
+$$
+f'_{-}(x) = \dfrac{f(x)-f(x - h)}{h},f'_{\cdot}(x) = \dfrac{f'_{+}(x) + f'_{-}(x)}{2}
+$$
+
+Sin embargo, esto es para funciones reales. ($f:\mathbb{R}\to \mathbb{R}$). Para nuestro caso $f:G\to \mathbb{R}$, requeriremos las derivadas parciales, tales que sin detalles pueden aproximarse mediante la siguiente fórmula.
+$$
+\partial_z f(z,t)\approx \dfrac{f(z+h,t)-f(z,t)}{h},\partial_t f(z,t) \approx \dfrac{f(z,t+h)-f(z,t)}{h}
+$$
+
+####
