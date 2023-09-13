@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Tesis de Maestría - 2&nbsp; Introduction</title>
+<title>Tesis de Maestría - 2&nbsp; Teoría Fisica</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -49,7 +30,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="next">
+<link href="./model1.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -81,6 +62,8 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -93,7 +76,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./theory.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Teoría Fisica</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -126,14 +109,20 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  <a href="./theory.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Teoría Fisica</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  <a href="./model1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Modelo 1: Etapa 1</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./model2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">model2.html</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -148,14 +137,28 @@ div.csl-indent {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#teoria-númerica" id="toc-teoria-númerica" class="nav-link active" data-scroll-target="#teoria-númerica"><span class="header-section-number">3</span> Teoria Númerica</a>
+  <ul class="collapse">
+  <li><a href="#adimensionalizacion" id="toc-adimensionalizacion" class="nav-link" data-scroll-target="#adimensionalizacion"><span class="header-section-number">3.1</span> Adimensionalizacion</a></li>
+  <li><a href="#discretizacion" id="toc-discretizacion" class="nav-link" data-scroll-target="#discretizacion"><span class="header-section-number">3.2</span> Discretizacion</a>
+  <ul class="collapse">
+  <li><a href="#malla-regiones-rectangulares" id="toc-malla-regiones-rectangulares" class="nav-link" data-scroll-target="#malla-regiones-rectangulares"><span class="header-section-number">3.2.1</span> Malla (Regiones Rectangulares)</a></li>
+  <li><a href="#método-upwind" id="toc-método-upwind" class="nav-link" data-scroll-target="#método-upwind"><span class="header-section-number">3.2.2</span> Método Upwind</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Teoría Fisica</span></h1>
 </div>
 
 
@@ -170,15 +173,61 @@ div.csl-indent {
 
 </header>
 
-<p>This is a book created from markdown and executable code.</p>
-<p>See <span class="citation" data-cites="knuth84">Knuth (<a href="references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> for additional discussion of literate programming.</p>
+<section id="teoria-númerica" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Teoria Númerica</h1>
+<section id="adimensionalizacion" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="adimensionalizacion"><span class="header-section-number">3.1</span> Adimensionalizacion</h2>
+<p>Al momento de trabajar con modelos físicos, en este caso atmosféricos, es importante tener cuidado al trabajar las unidades para evitar errores. Uno de los métodos más usados es la eliminación de las unidades.</p>
+</section>
+<section id="discretizacion" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="discretizacion"><span class="header-section-number">3.2</span> Discretizacion</h2>
+<section id="malla-regiones-rectangulares" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="malla-regiones-rectangulares"><span class="header-section-number">3.2.1</span> Malla (Regiones Rectangulares)</h3>
+<p>En el modelo trabajamos dentro de la tropopausa, por lo tanto <span class="math inline">\(Z = [0,15]\)</span> y consideremos <span class="math inline">\(T=[0, t],t\in\mathbb{R}\)</span>. Por lo tanto, nuestra zona de trabajo es <span class="math inline">\(U = Z\times T\)</span>, donde cada <span class="math inline">\(u\in U\)</span> es de la forma <span class="math inline">\(u=(z,t)\)</span>. Ahora, definiremos <span class="math inline">\(n_z,n_t\in\mathbb{N}\)</span>, tales que <span class="math inline">\(n_z,n_t&gt;0\)</span>. <span class="math inline">\(n_z\)</span> nos dira el número de pedazos en los que será dividido <span class="math inline">\(Z\)</span> y de igual forma con <span class="math inline">\(n_t\)</span> para <span class="math inline">\(T\)</span>.</p>
+<p>Si <span class="math inline">\(n_z = 2\)</span>, entonces existe <span class="math inline">\(z^*\)</span> tal que <span class="math inline">\(Z = [0,z^*] \cup [z^*,15]\)</span>, llamando <span class="math inline">\(z_0 = 0\)</span> y <span class="math inline">\(z_f = 15\)</span>. Decimos que la colección <span class="math inline">\(P_Z = \{z_0,z^*,z_f\}\)</span> forman una partición de <span class="math inline">\(Z\)</span>. Todo esto aplica de igual forma para <span class="math inline">\(T\)</span>. Entonces, llamaremos malla (o ‘grid’ traducido al ingles) al conjunto <span class="math inline">\(G\)</span>, donde <span class="math display">\[
+G = P_Z \times P_T,
+\]</span></p>
+<p>donde <span class="math inline">\(P_Z\)</span> y <span class="math inline">\(P_T\)</span> son particiones de <span class="math inline">\(Z\)</span> y <span class="math inline">\(T\)</span> respectivamente.</p>
+<p>Dentro de una partición <span class="math inline">\(P=\{x_0,\ldots,x_n\}\)</span> llamaremos <span class="math inline">\(\Delta x_k = x_{k+1}-x_k, n-1\geq k\geq 0\)</span>. Entonces para <span class="math inline">\(P_Z\)</span> y <span class="math inline">\(P_T\)</span> existe <span class="math inline">\(\Delta z_k,\Delta t_k\)</span> respectivamente. Entonces, es claro que <span class="math display">\[\begin{align*}
+t_{k} &amp; =t_{0}+\sum_{i=0}^{k-1}\Delta t_{k}\\
+z_{k} &amp; =z_{0}+\sum_{i=0}^{k-1}\Delta z_{k}
+\end{align*}\]</span></p>
+<p>Entonces, entonces para cada <span class="math inline">\(u\in G\)</span> existen indices <span class="math inline">\(i,j\)</span> tales que</p>
+<p><span class="math display">\[
+u\in G\Rightarrow u(z,t) = u(z_i,t_j) = u^i_j
+\]</span></p>
+</section>
+<section id="método-upwind" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="método-upwind"><span class="header-section-number">3.2.2</span> Método Upwind</h3>
+<p>Una vez definida la malla, y conociendo el sistema a resolver, debemos revisar como vamos a resolver el sistema. Para ello usaremos una versión del método upwind la cual consta de 2 elementos.</p>
+<ul>
+<li>Diferencias Finitas</li>
+<li>Criterio CFL</li>
+</ul>
+<section id="diferencias-finitas" class="level4" data-number="3.2.2.1">
+<h4 data-number="3.2.2.1" class="anchored" data-anchor-id="diferencias-finitas"><span class="header-section-number">3.2.2.1</span> Diferencias Finitas</h4>
+<p>Recordando la definición de derivada. <span class="math display">\[
+f'_+(x) = \lim_{h\to 0} \dfrac{f(x + h)-f(x)}{h}
+\]</span></p>
+<p>Es claro que, <span class="math display">\[
+f'(x) \approx \dfrac{f(x + h)-f(x)}{h}.
+\]</span></p>
+<p>También, según la situación pueden usarse variaciones para aproximarla.</p>
+<p><span class="math display">\[
+f'_{-}(x) = \dfrac{f(x)-f(x - h)}{h},f'_{\cdot}(x) = \dfrac{f'_{+}(x) + f'_{-}(x)}{2}
+\]</span></p>
+<p>Sin embargo, esto es para funciones reales. (<span class="math inline">\(f:\mathbb{R}\to \mathbb{R}\)</span>). Para nuestro caso <span class="math inline">\(f:G\to \mathbb{R}\)</span>, requeriremos las derivadas parciales, tales que sin detalles pueden aproximarse mediante la siguiente fórmula. <span class="math display">\[
+\partial_z f(z,t)\approx \dfrac{f(z+h,t)-f(z,t)}{h},\partial_t f(z,t) \approx \dfrac{f(z,t+h)-f(z,t)}{h}
+\]</span></p>
+</section>
+<section id="section" class="level4" data-number="3.2.2.2">
+<h4 data-number="3.2.2.2" class="anchored" data-anchor-id="section"><span class="header-section-number">3.2.2.2</span> </h4>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
-<div id="ref-knuth84" class="csl-entry" role="listitem">
-Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput. J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -421,8 +470,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./summary.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./model1.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Modelo 1: Etapa 1</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

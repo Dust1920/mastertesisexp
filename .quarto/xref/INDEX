@@ -10,5 +10,14 @@
   },
   "references.qmd": {
     "references.html": "15dc3b8c"
+  },
+  "theory.qmd": {
+    "theory.html": "a38660eb"
+  },
+  "model1.qmd": {
+    "model1.html": "a6878872"
+  },
+  "model2.qmd": {
+    "model2.html": "d4530590"
   }
 }

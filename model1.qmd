@@ -304,3 +304,8 @@ V_{\text{T}}\left(q_{r}\right)= & V_{0}\dfrac{q_{r}}{q_{*}}\\
 V_{\text{TN}}\left(q_{r}\right)= & V_{\text{TN}d}+\max\left(\dfrac{q_{r}}{q_{*}},1\right)\max\left(V_{T}\left(q_{r}\right)-V_{\text{TN}d},0\right)
 \end{align*}
 
+```{python}
+
+
+
+```
